@@ -63,13 +63,13 @@ impl NodeIndex {
     /// Returns `true` if current node is the left child of its parent, otherwise `false`.
     #[inline(always)]
     pub const fn is_left(self) -> bool {
-        self.0 % 2 != 0
+        !self.0.is_multiple_of(2)
     }
 
     /// Returns `true` if current node is the right child of its parent, otherwise `false`.
     #[inline(always)]
     pub const fn is_right(self) -> bool {
-        self.0 % 2 == 0
+        self.0.is_multiple_of(2)
     }
 
     #[inline]
