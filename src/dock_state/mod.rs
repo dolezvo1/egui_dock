@@ -717,11 +717,7 @@ impl<Tab> DockState<Tab> {
                 continue;
             }
             if let Some((node_index, tab_index)) = self[surface_index].find_tab_from(&predicate) {
-                return Some(TabPath {
-                    surface: surface_index,
-                    node: node_index,
-                    tab: tab_index,
-                });
+                return Some(TabPath::new(surface_index, node_index, tab_index));
             }
         }
         None
